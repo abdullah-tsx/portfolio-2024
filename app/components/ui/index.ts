@@ -1,3 +1,4 @@
+export * from './3DPin';
 export * from './BackgroundGradientAnimation';
 export * from './BentoGrid';
 export * from './FloatingNav';
@@ -5,6 +6,7 @@ export * from './Globe';
 export * from './GridBackground';
 export * from './GridGlobe';
 export * from './MagicBorderButton';
+export * from './MovingBorder';
 export * from './Spotlight';
 export * from './TextGenerateEffect';
 export * from './TypewriterEffect';

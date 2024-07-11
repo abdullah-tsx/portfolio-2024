@@ -1,11 +1,12 @@
 import { FaFileDownload, FaLocationArrow, FaWhatsapp } from 'react-icons/fa';
+
 import {
 	GridBackground,
 	MagicBorderButton,
 	Spotlight,
 	TextGenerateEffect,
+	TypewriterEffect,
 } from './ui';
-import { TypewriterEffect } from './ui/TypewriterEffect';
 
 const myIntro =
 	"Hi, I'm Abdullah, a frontend oriented Full Stack Developer based in Dubai"

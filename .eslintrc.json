@@ -22,19 +22,14 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": [
-		"@typescript-eslint",
-		"prettier",
-		"react",
-		"react-hooks",
-		"@tanstack/query"
-	],
+	"plugins": ["@typescript-eslint", "prettier", "react", "react-hooks"],
 	"rules": {
 		"prettier/prettier": "error",
 		"import/prefer-default-export": "off",
 		"react/jsx-props-no-spreading": "off",
 		"no-underscore-dangle": "off",
 		"react/require-default-props": "off",
+		"@next/next/no-img-element": "off",
 		"import/no-useless-path-segments": [
 			"error",
 			{

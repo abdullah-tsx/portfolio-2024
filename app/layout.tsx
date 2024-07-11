@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ThemeProvider } from './components/providers';
+
+import { ThemeProvider } from '@/app/components';
+
 import { STRINGS } from './constants';
 import './globals.css';
 
@@ -11,11 +13,11 @@ export const metadata: Metadata = {
 	description: STRINGS.DESC,
 };
 
-export default function RootLayout({
+const RootLayout = ({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
-}>) {
+}>) => {
 	return (
 		<html lang="en">
 			<body className={inter.className}>
@@ -30,4 +32,5 @@ export default function RootLayout({
 			</body>
 		</html>
 	);
-}
+};
+export default RootLayout;

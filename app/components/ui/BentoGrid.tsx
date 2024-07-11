@@ -1,7 +1,8 @@
 'use client';
+
 import animationData from '@/app/data/lottie-confetti.json';
 import { cn } from '@/app/utils';
-import { FC, HTMLAttributes, useCallback, useState } from 'react';
+import { FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react';
 import { IoCopyOutline } from 'react-icons/io5';
 import Lottie from 'react-lottie';
 import Marquee from '../Marquee';
@@ -14,7 +15,7 @@ export const BentoGrid = ({
 	children,
 }: {
 	className?: string;
-	children?: React.ReactNode;
+	children?: ReactNode;
 }) => {
 	return (
 		<div
@@ -30,8 +31,8 @@ export const BentoGrid = ({
 
 interface BentoGridItemProps extends HTMLAttributes<HTMLDivElement> {
 	className?: string;
-	itemTitle?: string | React.ReactNode;
-	description?: string | React.ReactNode;
+	itemTitle?: string | ReactNode;
+	description?: string | ReactNode;
 	img?: string;
 	imgClassName?: string;
 	titleClassName?: string;
@@ -134,7 +135,7 @@ export const BentoGridItem: FC<BentoGridItemProps> = ({
 									{leftLists.map((item, i) => (
 										<span
 											key={i}
-											className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
+											className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50
                     lg:opacity-100 rounded-lg text-center bg-[#10132E]"
 										>
 											{item}
@@ -149,7 +150,7 @@ export const BentoGridItem: FC<BentoGridItemProps> = ({
 									{rightLists.map((item, i) => (
 										<span
 											key={i}
-											className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
+											className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50
                     lg:opacity-100 rounded-lg text-center bg-[#10132E]"
 										>
 											{item}

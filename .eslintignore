@@ -1,0 +1,23 @@
+### react template
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
+node_modules
+bower_components
+
+*.sublime*
+
+psd
+thumb
+sketch
+.idea
+.vscode
+.next
+
+#Ignore Aceternity files
+app/components/ui
+
+

@@ -1,10 +1,29 @@
 'use client';
-import countries from '@/app/data/globe.json';
+
 import { OrbitControls } from '@react-three/drei';
 import { Canvas, extend, Object3DNode, useThree } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 import { Color, Fog, PerspectiveCamera, Scene, Vector3 } from 'three';
 import ThreeGlobe from 'three-globe';
+
+import countries from '@/app/data/globe.json';
+
+export function hexToRgb(hex: string) {
+	const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+	hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+		return r + r + g + g + b + b;
+	});
+
+	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+	return result
+		? {
+				r: parseInt(result[1], 16),
+				g: parseInt(result[2], 16),
+				b: parseInt(result[3], 16),
+			}
+		: null;
+}
+
 declare module '@react-three/fiber' {
 	interface ThreeElements {
 		threeGlobe: Object3DNode<ThreeGlobe, typeof ThreeGlobe>;
@@ -60,7 +79,7 @@ interface WorldProps {
 
 let numbersOfRings = [0];
 
-export function Globe({ globeConfig, data }: WorldProps) {
+export const Globe = ({ globeConfig, data }: WorldProps) => {
 	const [globeData, setGlobeData] = useState<
 		| {
 				size: number;
@@ -91,13 +110,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
 		...globeConfig,
 	};
 
-	useEffect(() => {
-		if (globeRef.current) {
-			_buildData();
-			_buildMaterial();
-		}
-	}, [globeRef.current]);
-
 	const _buildMaterial = () => {
 		if (!globeRef.current) return;
 
@@ -115,7 +127,8 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
 	const _buildData = () => {
 		const arcs = data;
-		let points = [];
+		const points = [];
+		// eslint-disable-next-line no-plusplus
 		for (let i = 0; i < arcs.length; i++) {
 			const arc = arcs[i];
 			const rgb = hexToRgb(arc.color) as { r: number; g: number; b: number };
@@ -147,6 +160,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
 		setGlobeData(filteredPoints);
 	};
+
+	useEffect(() => {
+		if (globeRef.current) {
+			_buildData();
+			_buildMaterial();
+		}
+	}, [globeRef.current]);
 
 	useEffect(() => {
 		if (globeRef.current && globeData) {
@@ -223,14 +243,10 @@ export function Globe({ globeConfig, data }: WorldProps) {
 		};
 	}, [globeRef.current, globeData]);
 
-	return (
-		<>
-			<threeGlobe ref={globeRef} />
-		</>
-	);
-}
+	return <threeGlobe ref={globeRef} />;
+};
 
-export function WebGLRendererConfig() {
+export const WebGLRendererConfig = () => {
 	const { gl, size } = useThree();
 
 	useEffect(() => {
@@ -240,9 +256,9 @@ export function WebGLRendererConfig() {
 	}, []);
 
 	return null;
-}
+};
 
-export function World(props: WorldProps) {
+export const World = (props: WorldProps) => {
 	const { globeConfig } = props;
 	const scene = new Scene();
 	scene.fog = new Fog(0xffffff, 400, 2000);
@@ -270,29 +286,13 @@ export function World(props: WorldProps) {
 				minDistance={cameraZ}
 				maxDistance={cameraZ}
 				autoRotateSpeed={1}
-				autoRotate={true}
+				autoRotate
 				minPolarAngle={Math.PI / 3.5}
 				maxPolarAngle={Math.PI - Math.PI / 3}
 			/>
 		</Canvas>
 	);
-}
-
-export function hexToRgb(hex: string) {
-	var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-	hex = hex.replace(shorthandRegex, function (m, r, g, b) {
-		return r + r + g + g + b + b;
-	});
-
-	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-	return result
-		? {
-				r: parseInt(result[1], 16),
-				g: parseInt(result[2], 16),
-				b: parseInt(result[3], 16),
-			}
-		: null;
-}
+};
 
 export function genRandomNumbers(min: number, max: number, count: number) {
 	const arr = [];
@@ -303,3 +303,5 @@ export function genRandomNumbers(min: number, max: number, count: number) {
 
 	return arr;
 }
+
+export default World;
