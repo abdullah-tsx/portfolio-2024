@@ -3,13 +3,13 @@ import { companies, testimonials } from '../data';
 
 export const Testimonials = () => {
 	return (
-		<div id="testimonials" className="py-10">
-			<h1 className="heading">
+		<div id="testimonials" className="py-20">
+			<h1 className="heading my-10">
 				Some <span className="text-purple">Professional Recommendations</span>
 			</h1>
 			<div className="flex flex-col items-center max-lg:mt-10">
 				<InfiniteMovingCards items={testimonials} speed="slow" />
-				<div className="flex flex-wrap items-center justofy-center gap-4 md:gap-16 max-lg:mt-10">
+				<div className="flex flex-wrap items-center justofy-center gap-4 md:gap-16 max-lg:mt-10 md:mt-10">
 					{companies.map(({ id, nameImg }) => {
 						return (
 							<div

@@ -7,7 +7,7 @@ import { projects } from '../data';
 
 export const RecentProjects = () => {
 	return (
-		<div id="projects" className="py-10">
+		<div id="projects" className="py-20">
 			<h1 className="heading">
 				A small selection of{' '}
 				<span className="text-purple">recent projects</span>
@@ -20,7 +20,7 @@ export const RecentProjects = () => {
 							key={id}
 							className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
 						>
-							<PinContainer title={link} href={link}>
+							<PinContainer title={title} href={link}>
 								<div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
 									<div className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
 										<img src="/bg.png" alt="bg-png" />
@@ -28,7 +28,7 @@ export const RecentProjects = () => {
 									<img
 										src={img}
 										alt={title}
-										className="z-10 absolute bottom-0"
+										className="z-10 absolute bottom-0 rounded-lg rotate-3"
 									/>
 								</div>
 								<h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">

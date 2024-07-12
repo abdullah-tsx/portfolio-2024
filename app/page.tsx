@@ -11,7 +11,7 @@ import { navItems } from './data';
 
 const Home = () => {
 	return (
-		<main className="relative bg-black-100 flex justify-center items-center flex-col overflow-x-hidden sm:px-10 px-5 no-scrollbar">
+		<main className="relative bg-black-100 flex justify-center items-center flex-col overflow-x-hidden mx-auto sm:px-10 px-5no-scrollbar">
 			<div className="w-full">
 				<FloatingNav navItems={navItems} />
 				<Hero />

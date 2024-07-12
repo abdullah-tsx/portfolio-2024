@@ -2,11 +2,11 @@
 
 import animationData from '@/app/data/lottie-confetti.json';
 import { cn } from '@/app/utils';
-import { FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react';
+import { FC, HTMLAttributes, ReactNode, useState } from 'react';
 import { IoCopyOutline } from 'react-icons/io5';
 import Lottie from 'react-lottie';
 import Marquee from '../Marquee';
-import { BackgroundGradientAnimation } from './BackgroundGradientAnimation';
+import { BackgroundGradientAnimation } from '@/app/components/ui';
 import { GridGlobe } from './GridGlobe';
 import MagicBorderButton from './MagicBorderButton';
 
@@ -63,11 +63,12 @@ export const BentoGridItem: FC<BentoGridItemProps> = ({
 		},
 	};
 
-	const handleCopy = useCallback(() => {
+	const handleCopy = () => {
 		const text = 'abdullah.ryk94@gmail.com';
-		navigator.clipboard.writeText(text);
-		setIsCopied(true);
-	}, []);
+		navigator.clipboard.writeText(text).then(() => {
+			setIsCopied(true);
+		});
+	};
 
 	return (
 		<div
@@ -110,7 +111,9 @@ export const BentoGridItem: FC<BentoGridItemProps> = ({
 					)}
 				</div>
 				{id === '6' && (
-					<BackgroundGradientAnimation containerClassName="absolute top-0 left-0 overflow-hidden" />
+					<BackgroundGradientAnimation>
+						<div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl" />
+					</BackgroundGradientAnimation>
 				)}
 				<div
 					className={cn(

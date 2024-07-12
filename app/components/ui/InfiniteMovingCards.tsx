@@ -3,6 +3,15 @@
 import { cn } from '@/app/utils';
 import React, { useEffect, useState } from 'react';
 
+interface Items {
+	name: string;
+	title: string;
+	image: string;
+	link: string;
+	id: string;
+	quote: string;
+}
+
 export const InfiniteMovingCards = ({
 	items,
 	direction = 'left',
@@ -10,11 +19,7 @@ export const InfiniteMovingCards = ({
 	pauseOnHover = true,
 	className,
 }: {
-	items: {
-		quote: string;
-		name: string;
-		title: string;
-	}[];
+	items: Items[];
 	direction?: 'left' | 'right';
 	speed?: 'fast' | 'normal' | 'slow';
 	pauseOnHover?: boolean;
@@ -85,7 +90,7 @@ export const InfiniteMovingCards = ({
 					pauseOnHover && 'hover:[animation-play-state:paused]',
 				)}
 			>
-				{items.map((item, idx) => (
+				{items.map(({ name, id, quote, title, link, image }) => (
 					<li
 						className="w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-800 p-5 md:p-16 md:w-[60vw]"
 						style={{
@@ -93,30 +98,36 @@ export const InfiniteMovingCards = ({
 							backgroundColor:
 								'linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)',
 						}}
-						key={item.name + idx}
+						key={id}
 					>
-						<blockquote>
+						<blockquote className="flex flex-col items-start justify-between w-full h-full">
 							<div
 								aria-hidden="true"
 								className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
 							></div>
-							<span className="relative z-20 text-sm md:text-lg leading-[1.6] text-white font-normal">
-								{item.quote}
+							<span className="relative z-20 text-sm md:text-lg leading-[1.6] text-white font-normal h-3/4">
+								{quote}
 							</span>
-							<div className="relative z-20 mt-6 flex flex-row items-center">
-								<span className="flex flex-col gap-1">
-									<div className="me-3">
-										<img src="/profile.svg" alt="pfp" />
-									</div>
-									<div className="flex flex-col gap-1">
-										<span className="leading-[1.6] text-white font-bold text-xl">
-											{item.name}
-										</span>
-										<span className=" text-sm leading-[1.6] text-white-200 font-normal">
-											{item.title}
-										</span>
-									</div>
-								</span>
+							<div className="relative z-20 mt-6 flex flex-row items-center h-1/4">
+								<a href={link} rel="noopener noreferrer" target="_blank">
+									<span className="flex flex-row md:flex-col gap-1">
+										<div className="me-3">
+											<img
+												src={image}
+												alt={name}
+												className="w-16 aspect-square rounded-full object-cover"
+											/>
+										</div>
+										<div className="flex flex-col gap-1">
+											<span className="leading-[1.6] text-white font-bold text-xl">
+												{name}
+											</span>
+											<span className=" text-sm leading-[1.6] text-white-200 font-normal">
+												{title}
+											</span>
+										</div>
+									</span>
+								</a>
 							</div>
 						</blockquote>
 					</li>
