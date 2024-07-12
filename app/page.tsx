@@ -1,13 +1,20 @@
+import dynamic from 'next/dynamic';
+
+import { FloatingNav } from '@/app/components/ui/';
+import { navItems } from '@/app/data';
+
 import {
 	Experiences,
-	FloatingNav,
 	Footer,
-	Grid,
 	Hero,
 	RecentProjects,
 	Testimonials,
 } from './components';
-import { navItems } from './data';
+
+// TODO: Investigate window is not defined error.
+const Grid = dynamic(() => import('./components/Grid').then(m => m.Grid), {
+	ssr: false,
+});
 
 const Home = () => {
 	return (
