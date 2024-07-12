@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: STRINGS.TITLE,
 		description: STRINGS.DESC,
-		images: 'https://www.abdullahs.dev/logo.jpg',
-		url: 'https://www.abdullahs.dev/',
+		images: `${process.env.NEXT_PUBLIC_URL}/logo.jpg`,
+		url: process.env.NEXT_PUBLIC_URL,
 		type: 'website',
 	},
 };
