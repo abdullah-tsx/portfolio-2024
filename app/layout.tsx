@@ -9,6 +9,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+	applicationName: STRINGS.TITLE,
 	title: STRINGS.TITLE,
 	description: STRINGS.DESC,
 	openGraph: {
@@ -17,6 +18,13 @@ export const metadata: Metadata = {
 		images: `${process.env.NEXT_PUBLIC_URL}/logo.jpg`,
 		url: process.env.NEXT_PUBLIC_URL,
 		type: 'website',
+	},
+	twitter: {
+		card: 'summary_large_image',
+		site: '@abd_ch11',
+		title: STRINGS.TITLE,
+		description: STRINGS.DESC,
+		images: `${process.env.NEXT_PUBLIC_URL}/logo.jpg`,
 	},
 };
 
