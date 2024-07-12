@@ -11,6 +11,11 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
 	title: STRINGS.TITLE,
 	description: STRINGS.DESC,
+	openGraph: {
+		title: STRINGS.TITLE,
+		description: STRINGS.DESC,
+		images: '/logo.ipg',
+	},
 };
 
 const RootLayout = ({
