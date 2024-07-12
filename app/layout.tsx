@@ -14,7 +14,9 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: STRINGS.TITLE,
 		description: STRINGS.DESC,
-		images: '/logo.ipg',
+		images: 'https://www.abdullahs.dev/logo.jpg',
+		url: 'https://www.abdullahs.dev/',
+		type: 'website',
 	},
 };
 
