@@ -9,7 +9,7 @@ import {
 } from './ui';
 
 const myIntro =
-	"Hi, I'm Abdullah, a frontend oriented Full Stack Developer based in Dubai"
+	"Hi! I'm Abdullah; a frontend oriented Full Stack Developer based in Dubai"
 		.split(' ')
 		.map(word => {
 			return { text: word };
