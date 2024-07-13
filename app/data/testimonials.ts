@@ -41,8 +41,7 @@ export const testimonials = [
 	},
 	{
 		id: '5',
-		quote:
-			"Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+		quote: 'He is highly recommended due to his skills and expertise.',
 		name: 'Usman Ahmed',
 		title: 'Technical Lead @Devfied',
 		link: 'https://www.linkedin.com/in/usikandar/',

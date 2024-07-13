@@ -9,6 +9,7 @@ import Marquee from '../Marquee';
 import { BackgroundGradientAnimation } from '@/app/components/ui';
 import { GridGlobe } from './GridGlobe';
 import MagicBorderButton from './MagicBorderButton';
+import { backend, frontend } from '@/app/data';
 
 export const BentoGrid = ({
 	className,
@@ -38,9 +39,6 @@ interface BentoGridItemProps extends HTMLAttributes<HTMLDivElement> {
 	titleClassName?: string;
 	spareImg?: string;
 }
-
-const leftLists = ['ReactJS', 'Express', 'Typescript', 'Taliwindcss'];
-const rightLists = ['VueJS', 'NuxtJS', 'GraphQL'];
 
 export const BentoGridItem: FC<BentoGridItemProps> = ({
 	className,
@@ -135,7 +133,7 @@ export const BentoGridItem: FC<BentoGridItemProps> = ({
 						<div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2 h-full">
 							<Marquee direction="down">
 								<div className="flex flex-col gap-3 md:gap-3 lg:gap-8 h-full">
-									{leftLists.map((item, i) => (
+									{frontend.map((item, i) => (
 										<span
 											key={i}
 											className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50
@@ -150,7 +148,7 @@ export const BentoGridItem: FC<BentoGridItemProps> = ({
 							<Marquee direction="up">
 								<div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
 									<span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
-									{rightLists.map((item, i) => (
+									{backend.map((item, i) => (
 										<span
 											key={i}
 											className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50
