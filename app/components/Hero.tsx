@@ -15,7 +15,7 @@ const myIntro =
 			return { text: word };
 		});
 export const Hero = () => {
-	const phoneNumber = '971588694660';
+	const phoneNumber = '971505053369';
 
 	return (
 		<div className="pb-20 pt-36">
