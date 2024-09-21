@@ -49,7 +49,7 @@ export const Hero = () => {
 							</MagicBorderButton>
 						</a>
 						<a
-							href="https://api.whatsapp.com/send?phone=923101050505&text=Hello%2C%20I%20got%20your%20number%20from%20your%20portfolio."
+							href="https://api.whatsapp.com/send?phone=971505053369&text=Hello%2C%20I%20got%20your%20number%20from%20your%20portfolio."
 							target="_blank"
 							rel="noopener noreferrer"
 						>
