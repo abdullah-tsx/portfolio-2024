@@ -54,8 +54,16 @@ export const projects = [
 			'/js.svg',
 			'/bootstrap.svg',
 			'/redux.svg',
-			'./chartjs.svg',
+			'/chartjs.svg',
 		],
 		link: 'https://infodart.edraaksystems.com/',
+	},
+	{
+		id: '5',
+		title: 'QuickdropX',
+		desc: 'Enhance your drop shipping business with professional automation tools. Effortlessly import products and manage sales from over 20 supported suppliers',
+		img: '/qdx.jpg',
+		iconLists: ['/re.svg', '/tail.svg', '/ts.svg', '/socket.svg', '/redux.svg'],
+		link: 'https://platform-qa.quickdropx.com',
 	},
 ];

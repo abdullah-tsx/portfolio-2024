@@ -71,16 +71,22 @@ export const gridItems = [
 
 export const companies = [
 	{
-		id: '1',
-		name: 'Wellnite',
-		img: '/wellnite_logo.png',
-		nameImg: '/wellnite.png',
+		id: '0',
+		name: 'Softbuilders Software Design',
+		img: '/softt.png',
+		nameImg: '/softt.png',
 	},
 	{
-		id: '2',
+		id: '1',
 		name: 'Edraak Systems',
 		img: '/edraak_logo.jpeg',
 		nameImg: '/edraak-name.png',
+	},
+	{
+		id: '2',
+		name: 'Wellnite',
+		img: '/wellnite_logo.png',
+		nameImg: '/wellnite.png',
 	},
 	{
 		id: '3',
